@@ -52,11 +52,12 @@ function parseFile(entry, callback) {
       var purified = _.filter(data, function (d) {
         return d.lemma.match(/^[a-zA-Z]+$/);
       });
-
       callback && callback(purified);
     }
 
-    callback && callback(data);
+    if (!program.filter) {
+      callback && callback(data);
+    }
   }
 }
 
