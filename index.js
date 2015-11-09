@@ -10,6 +10,7 @@ program
   .option('-e, --entries <n>', 'How Many Entries in a single file?', 10)
   .option('-p, --pretty', 'Pretty Formatted JSON in the outputs', false)
   .option('-m, --metadata', 'Generate Metadata', false)
+  .option('-f, --filter', 'Filter non-english words', false)
   .arguments('<cmd>')
   .action(function (cmd) {
     cmdValue = cmd;
@@ -27,7 +28,7 @@ function readfile(callback) {
       callback && callback(err);
     } else {
       var dir = './output';
-      if (!fs.existsSync(dir)){
+      if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
       }
       callback && callback(data);
@@ -47,9 +48,15 @@ function parseFile(entry, callback) {
   } else {
     var data = JSON.parse(entry);
 
-    var purified = _.filter(data, function(d){ return d.lemma.match(/^[a-zA-Z]+$/); });
+    if (program.filter) {
+      var purified = _.filter(data, function (d) {
+        return d.lemma.match(/^[a-zA-Z]+$/);
+      });
 
-    callback && callback(purified);
+      callback && callback(purified);
+    }
+
+    callback && callback(data);
   }
 }
 
