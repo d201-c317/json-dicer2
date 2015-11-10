@@ -19,11 +19,13 @@ Usage
 5. Finally...
 
 ```sh
-$ node index.js [Options] <Full path to the Source JSON Array File>
+$ node index.js [Options] <Full path to the Source JSON Array File>  <Output Directory> 
 ```
 
-6. Outputs can be found under `output` directory
+Outputs can be found under the output directory you defined
+
 ### Options
+
 ```sh
 -h, --help         output usage information
 -V, --version      output the version number
@@ -32,5 +34,6 @@ $ node index.js [Options] <Full path to the Source JSON Array File>
 -m, --metadata     Generate an metadata JSON
 -f, --filter       Filter Words that not matching Regex (Source: alphabets)
 ```
+
 ### License
 GPLv3
