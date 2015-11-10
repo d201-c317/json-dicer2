@@ -1,4 +1,4 @@
-The JSON-Dicer
+The JSON-Dicer, with filtering functionality
 ==============
 
 Derscription
@@ -30,6 +30,7 @@ $ node index.js [Options] <Full path to the Source JSON Array File>
 -e, --entries <n>  How Many Entries in a single file?
 -p, --pretty       Pretty Formatted JSON in the outputs
 -m, --metadata     Generate an metadata JSON
+-f, --filter       Filter Words that not matching Regex (Source: alphabets)
 ```
 ### License
 GPLv3
